@@ -1,8 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "extends": [
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["plugin:@typescript-eslint/recommended"],
   "plugins": ["@typescript-eslint"],
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -10,8 +8,8 @@
     "project": "./tsconfig.json"
   },
   "env": {
-   "node": true,
-   "es6": true
+    "node": true,
+    "es6": true
   },
   "rules": {
     "@typescript-eslint/no-inferrable-types": 0,

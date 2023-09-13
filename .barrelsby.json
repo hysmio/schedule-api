@@ -2,7 +2,6 @@
   "directory": [
     "./src/controllers/api",
     "./src/controllers/pages",
-    "./src/datasources",
     "./src/resolvers"
   ],
   "exclude": ["__mock__", "__mocks__", ".spec.ts"],

@@ -1,6 +1,5 @@
 import { Field, ID, ObjectType, Int } from "type-graphql";
 import { Schedule } from "../schedule/Schedule";
-import { Configuration } from "@tsed/di";
 import {
   Description,
   Enum,

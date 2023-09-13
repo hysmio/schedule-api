@@ -22,7 +22,7 @@ A few more things:
 - You can delete all the tasks of a schedule, bypassing the limit, this might also break the ability to fetch it. Easy enough fix.
 - Could've probably avoided `CreateTask`, `UpdateTask`, `CreateSchedule`, `UpdateSchedule` & `UpdateScheduleTask` by using the [@tsed/schema.Groups concept defined here](https://tsed.io/docs/model.html#groups). I hadn't actually used tsed before, so I just wasn't fully aware of all the capability & couldn't dedicate time to learning the whole framework. The multiple struct pattern is what we typically use in Golang.
 
-# To run
+## To run
 
 There's a [Makefile](/Makefile) to create a postgres database & run migrations.
 
@@ -30,12 +30,34 @@ There's a [Makefile](/Makefile) to create a postgres database & run migrations.
   # Create postgres in Docker, ensure it's running!
   make postgres
 
+  # Pull dependencies
+  yarn
+
   # Run the Prisma migrations
   make migrations
+
+  # Run the application in development
+  yarn start
+
+  # Make sure you clean up the database!
+  docker stop leonardo-ai
+```
+
+## To run tests
+
+```sh
+  # Create postgres in Docker, ensure it's running!
+  make postgres
 
   # Pull dependencies
   yarn
 
+  # Run the Prisma migrations
+  make migrations
+
   # Run the application in development
-  yarn start
+  yarn test
+
+  # Make sure you clean up the database!
+  docker stop leonardo-ai
 ```
