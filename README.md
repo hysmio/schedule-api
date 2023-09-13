@@ -20,6 +20,7 @@ A few more things:
 - Focused on the Rest API & didn't write tests for GraphQL API
 - Wrote tests in a lot more e2e fashion and less unit "test-y" (as I find it more useful, didn't see the big heading in readme for "thorough" unit tests)
 - You can delete all the tasks of a schedule, bypassing the limit, this might also break the ability to fetch it. Easy enough fix.
+- Could've probably avoided `CreateTask`, `UpdateTask`, `CreateSchedule`, `UpdateSchedule` & `UpdateScheduleTask` by using the [@tsed/schema.Groups concept defined here](https://tsed.io/docs/model.html#groups). I hadn't actually used tsed before, so I just wasn't fully aware of all the capability & couldn't dedicate time to learning the whole framework. The multiple struct pattern is what we typically use in Golang.
 
 # To run
 
