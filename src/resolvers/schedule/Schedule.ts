@@ -20,7 +20,7 @@ export class Schedule {
   @Example(123)
   account_id: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   @Description("The ID of the agent this schedule will be executed on")
   @Minimum(0)
   @Example(123)

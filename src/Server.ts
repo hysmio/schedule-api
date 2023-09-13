@@ -5,7 +5,6 @@ import "@tsed/platform-express"; // /!\ keep this import
 import "@tsed/ajv";
 import "@tsed/swagger";
 import "@tsed/typegraphql";
-import "./datasources/index";
 import "./resolvers/index";
 import { config } from "./config/index";
 import * as api from "./controllers/api/index";
