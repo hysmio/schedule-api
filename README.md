@@ -7,11 +7,10 @@ Ended up choosing to use:
 - Rest API focused - GraphQL API supported, untested, didn't do lambda for time sakes.
 - Postgres w/ Prisma, planned on implementing caching layer, but again, time.
 
-I realised halfway through that task endpoints should probably exist under schedules, but for the sake of time I didn't make this change:
+I realised halfway through that task endpoints should probably exist under schedules (except for GET /api/task/:task_id, so you can fetch an individual task), but for the sake of time I didn't make this change:
 
 - `GET /api/task` -> `GET /api/schedule/:schedule_id/task`
 - `POST /api/task` -> `POST /api/schedule/:schedule_id/task`
-- `GET /api/task/:task_id` -> `/api/schedule/:schedule_id/task/:task_id`
 - `PUT /api/task/:task_id` -> `/api/schedule/:schedule_id/task/:task_id`
 - `DELETE /api/task/:task_id` -> `/api/schedule/:schedule_id/task/:task_id`
 
