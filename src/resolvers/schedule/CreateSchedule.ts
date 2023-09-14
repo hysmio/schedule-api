@@ -8,6 +8,7 @@ import {
   Minimum,
   Required,
   MinItems,
+  ArrayOf,
 } from "@tsed/schema";
 
 import { CreateScheduleTask } from "./CreateScheduleTask";
@@ -46,6 +47,7 @@ export class CreateSchedule {
   @Field(() => [CreateScheduleTask])
   @Description("The tasks to execute at start_time")
   @MinItems(1)
+  @ArrayOf(CreateScheduleTask)
   @Required()
   tasks: CreateScheduleTask[];
 }

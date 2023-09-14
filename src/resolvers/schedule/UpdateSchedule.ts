@@ -1,5 +1,5 @@
 import { Field, Int, InputType } from "type-graphql";
-import { Description, Example, Minimum } from "@tsed/schema";
+import { ArrayOf, Description, Example, Minimum } from "@tsed/schema";
 import { AfterDeserialize } from "@tsed/json-mapper";
 import { ValidationError } from "@tsed/platform-params";
 
@@ -36,5 +36,6 @@ export class UpdateSchedule {
 
   @Field(() => [UpdateTask], { nullable: true })
   @Description("The tasks to execute at start_time")
+  @ArrayOf(UpdateTask)
   tasks?: UpdateTask[];
 }

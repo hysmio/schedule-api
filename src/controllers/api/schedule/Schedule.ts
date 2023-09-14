@@ -12,13 +12,13 @@ export class ScheduleController {
   private resolver: ScheduleResolver;
 
   @Get("/")
-  @Returns(200, Array).Of(Schedule)
+  @Returns(200, Array).Of(Schedule).Groups("with.tasks")
   getSchedules(): Promise<Schedule[]> {
     return this.resolver.schedules();
   }
 
   @Get("/:schedule_id")
-  @Returns(200, Schedule)
+  @Returns(200, Schedule).Groups("with.tasks")
   getSchedule(
     @PathParams("schedule_id") schedule_id: string
   ): Promise<Schedule> {
@@ -26,13 +26,13 @@ export class ScheduleController {
   }
 
   @Post("/")
-  @Returns(201, Schedule)
+  @Returns(201, Schedule).Groups("with.tasks")
   createSchedule(@BodyParams() schedule: CreateSchedule): Promise<Schedule> {
     return this.resolver.createSchedule(schedule);
   }
 
   @Put("/:schedule_id")
-  @Returns(200, Schedule)
+  @Returns(200, Schedule).Groups("with.tasks")
   updateSchedule(
     @PathParams("schedule_id") schedule_id: string,
     @BodyParams() to_update: UpdateSchedule
@@ -41,7 +41,7 @@ export class ScheduleController {
   }
 
   @Delete("/:schedule_id")
-  @Returns(200, Schedule)
+  @Returns(200, Schedule).Groups("with.tasks")
   deleteSchedule(
     @PathParams("schedule_id") schedule_id: string
   ): Promise<Schedule> {

@@ -4,4 +4,3 @@
 
 export * from "./schedule/Schedule";
 export * from "./task/Task";
-export * from "./task/types";

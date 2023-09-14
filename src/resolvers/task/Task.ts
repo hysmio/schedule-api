@@ -1,14 +1,16 @@
 import { Field, ID, ObjectType, Int } from "type-graphql";
-import { Schedule } from "../schedule/Schedule";
 import {
   Description,
   Enum,
   Example,
+  Groups,
   Minimum,
   Pattern,
+  Property,
   Required,
 } from "@tsed/schema";
 
+import { Schedule } from "../schedule/Schedule";
 import { UUIDRegex } from "../../helpers/constants";
 
 @ObjectType({
@@ -19,29 +21,28 @@ export class Task {
   @Description("The ID of this task")
   @Required()
   @Pattern(UUIDRegex)
+  @Example("0123e4567-e89b-12d3-a456-42661417400")
   id: string;
 
-  // NOTE: number isn't specified in the schema, but Swagger refuses to display
-  // it as a number, so we need to give it an obscure type to make it work.
-  //
-  // @Schema({ type: "number" }) also doesn't work :(
   @Field(() => Int)
   @Description("The ID of the account this task belongs to")
   @Required()
   @Minimum(1)
   @Example(123)
-  account_id: Schedule["account_id"];
+  account_id: number;
 
   @Field(() => String)
   @Description("The ID of the schedule this task belongs to")
   @Required()
   @Pattern(UUIDRegex)
-  schedule_id: Schedule["id"];
+  @Example("123e4567-e89b-12d3-a456-426614174000")
+  schedule_id: string;
 
   @Field(() => Schedule)
-  @Description("The schedule this task belongs to")
-  @Required()
-  schedule: Omit<Schedule, "tasks">;
+  @Description("The tasks that were executed as part of this schedule")
+  @Property(() => Schedule)
+  @Groups("with.schedule")
+  schedule: Schedule;
 
   @Field(() => Date, {
     nullable: true,
